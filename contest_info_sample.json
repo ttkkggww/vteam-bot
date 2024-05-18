@@ -1,0 +1,11 @@
+{
+    "title":"コンテスト名",
+    "start_time":"2023-05-17T15:30:00+09:00",
+    "contest_length":100,
+    "problem_set":["problem1","problem2","problem3","problem4","problem5"],
+    "teams":[
+        {"name":"チームA","member_ids":["ttkkggww","ttkkggww","ttkkggww"]},
+        {"name":"チームB","member_ids":["ttkkggww","ttkkggww","ttkkggww"]},
+        {"name":"チームC","member_ids":["ttkkggww","ttkkggww","ttkkggww"]}
+    ]
+}
