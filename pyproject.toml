@@ -6,6 +6,9 @@ authors = [
     { name = "ttkkggww", email = "takigawaktai@gmail.com" }
 ]
 dependencies = [
+    "python-dotenv>=1.0.1",
+    "discord-py>=2.3.2",
+    "requests>=2.31.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -27,4 +30,4 @@ allow-direct-references = true
 packages = ["src/vteam_bot"]
 
 [project.scripts]
-hello = "vteam_bot:hello"
+start = "vteam_bot:run"
