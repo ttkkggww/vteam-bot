@@ -66,7 +66,7 @@ async def set_contest(ctx, *, message):
     await ctx.send("Contest Infomatin is setted!")
     await ctx.send(f"Title: {settings.get('title')}")
     await ctx.send(f"Start Time: {settings.get('start_time')}")
-    while contest_manager.get_contest_status()["constest_active"]:
-        contest_manager.contest_update()
+    while contest_manager.get_contest_status()["contest_active"]:
+        await contest_manager.contest_update()
         await display_contest_status(ctx, contest_manager.get_contest_status())
         await asyncio.sleep(API_INTERVAL)

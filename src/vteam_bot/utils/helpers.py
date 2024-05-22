@@ -8,19 +8,28 @@ def convert_embed(contest_status: dict):
         field_value = ""
         for team_name in contest_status.get("submissions")[problem_id]:
             field_value += f"{team_name}:"
+            problem_submission = contest_status.get("submissions")[problem_id][team_name]
             submissions = [
-                v for v in contest_status.get("submissions")[problem_id][team_name]
+                (v,problem_submission[v]) for v in problem_submission
             ]
-            submissions.sort(key=lambda x: x.get("unix_time"))
+            print(contest_status.get("submissions"))
+            print(submissions)
+            submissions.sort(key=lambda x: x[0])
             wa = 0
             ac = 0
             for submission in submissions:
-                if submission.get("result") == "AC":
+                if submission[1] == "AC":
                     ac += 1
                     break
                 else:
                     wa += 1
-            field_value += f"AC:{ac} WA:{wa}\n"
+            if ac > 0:
+                field_value += "🟩AC({})".format(wa)
+            elif wa > 0:
+                field_value += "🟧WA({})".format(wa)
+            else:
+                field_value += "⬜"
+            field_value += "\n"
 
         embed.add_field(name=field_name, value=field_value, inline=False)
     return embed
